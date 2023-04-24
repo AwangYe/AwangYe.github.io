@@ -12,7 +12,7 @@
 
     <div class="push-title">{{.MsgTitle}}</div>
     <div class="push-date">
-        <span class="push-auth">KosakdPush &nbsp;&nbsp;</span>
+        <span class="push-auth">YangQuPush &nbsp;&nbsp;</span>
         
         <span>{{.MsgTime}}</span>
     </div>
@@ -26,5 +26,28 @@
     </div>
 </div>
 </body>
+<script>  
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    var Request = new Object();
+    Request = GetRequest();
+    
+    var msgtitleElem = document.getElementsByClassName('push-title')[0];
+    var msgtimeElem = document.getElementsByClassName('push-date')[0];
+    var msgcontentElem = document.getElementsByClassName('push-cont')[0];
+    msgtitleElem.innerText = Request['title'];
+    msgtimeElem.innerText = Request['date'];
+    msgcontentElem.innerText = Request['cont'];
+</script>
 
 </html>
