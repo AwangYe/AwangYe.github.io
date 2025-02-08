@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信朋友圈详情</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #f7f7f7;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background-color: #f7f7f7;
+            /* border-bottom: 1px solid #e5e5e5; */
+        }
+
+        .header h1 {
+            flex: 1;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0;
+            margin-left: -28px;
+        }
+
+        .main-content {
+            background-color: white;
+            padding: 16px;
+            padding-bottom: 80px;
+        }
+
+        .post {
+            display: flex;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: #ccc;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .username {
+            color: #576b95;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .product-info {
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            line-height: 25px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            max-width: 75%;
+        }
+
+        .image-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .timestamp {
+            color: #b2b2b2;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .comment-input {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 414px;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            padding: 8px;
+            /* border-top: 1px solid #e5e5e5; */
+        }
+
+        .comment-input input {
+            width: calc(100% - 50px);
+            padding: 8px 8px;
+            border-radius: 5px;
+            border: none;
+            /* border: 1px solid #e5e5e5; */
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="status-bar">
+            <span style="font-weight: 500;">16:55</span>
+            <div>
+                <span
+                    style="display: inline-block; width: 16px; height: 16px; background-color: black; border-radius: 2px; margin-right: 4px;"></span>
+                <span
+                    style="display: inline-block; width: 16px; height: 16px; background-color: black; border-radius: 2px; color: white; font-size: 10px; text-align: center; line-height: 16px;">4G</span>
+            </div>
+        </div>
+
+        <div class="header">
+            <button style="background: none; border: none; padding: 4px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <h1>详情</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="post">
+                <div class="avatar"></div>
+                <div class="post-content">
+                    <div class="username">华恒昌 吴少华</div>
+                    <div class="product-info">
+                        <p>20250206午[太阳]轩尼诗VSOP</p>
+                        <p> ㊗️黄府乔迁[福]</p>
+                        <p>📍河源龙川格兰云天酒店</p>
+                    </div>
+                    <div class="image-grid">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 1">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 2">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 3">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 4">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 5">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9f57f64f439cbcee6e95db6a1141deea.jpg-7CdhpG9HECjb8m5j3DRKjthROUUZeU.jpeg"
+                            alt="Product image 6">
+                    </div>
+                    <div class="timestamp">
+                        15分钟前
+                        <button style="float: right; background: none; border: none; padding: 4px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b2b2b2"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comment-input">
+            <input type="text" placeholder="发表评论...">
+            <button style="background: none;border: none;padding: 5px;float: right;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b2b2b2" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
